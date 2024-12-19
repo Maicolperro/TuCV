@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Currículum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Estilo general */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 5px solid #007bff;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+    button {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+    .preview {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .preview img {
+      max-width: 150px;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+    .floating-credit {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      animation: fadeInOut 5s infinite;
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generador de Currículum</h1>
+    <div class="section">
+      <label for="name"><i class="fas fa-user"></i> Nombre Completo:</label>
+      <input type="text" id="name" placeholder="Escribe tu nombre">
+
+      <label for="ci"><i class="fas fa-id-card"></i> Cédula de Identidad:</label>
+      <input type="text" id="ci" placeholder="Escribe tu cédula de identidad">
+
+      <label for="dob"><i class="fas fa-calendar"></i> Fecha de Nacimiento:</label>
+      <input type="date" id="dob">
+
+      <label for="age"><i class="fas fa-birthday-cake"></i> Edad:</label>
+      <input type="number" id="age" placeholder="Escribe tu edad">
+
+      <label for="nationality"><i class="fas fa-flag"></i> Nacionalidad:</label>
+      <input type="text" id="nationality" placeholder="Escribe tu nacionalidad">
+
+      <label for="sex"><i class="fas fa-venus-mars"></i> Sexo:</label>
+      <select id="sex">
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <label for="healthCard"><i class="fas fa-notes-medical"></i> Carnet de Salud:</label>
+      <select id="healthCard">
+        <option value="Al día">Al día</option>
+        <option value="Vencido">Vencido</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+      <input type="email" id="email" placeholder="Escribe tu correo">
+
+      <label for="phone"><i class="fas fa-phone"></i> Teléfono:</label>
+      <input type="text" id="phone" placeholder="Escribe tu teléfono">
+
+      <label for="address"><i class="fas fa-map-marker-alt"></i> Dirección:</label>
+      <input type="text" id="address" placeholder="Escribe tu dirección">
+    </div>
+
+    <div class="section">
+      <label for="education"><i class="fas fa-graduation-cap"></i> Educación:</label>
+      <textarea id="education" rows="4" placeholder="Escribe tu formación académica"></textarea>
+
+      <label for="skills"><i class="fas fa-tools"></i> Habilidades:</label>
+      <textarea id="skills" rows="4" placeholder="Escribe tus habilidades"></textarea>
+
+      <label for="experience"><i class="fas fa-briefcase"></i> Experiencia Laboral:</label>
+      <textarea id="experience" rows="4" placeholder="Describe tu experiencia laboral"></textarea>
+
+      <label for="languages"><i class="fas fa-language"></i> Idiomas:</label>
+      <input type="text" id="languages" placeholder="Idiomas que hablas (e.g., Español, Inglés)">
+
+      <label for="selfDescription"><i class="fas fa-pencil-alt"></i> Descripción Personal:</label>
+      <textarea id="selfDescription" rows="4" placeholder="Describe cómo eres y tu impacto en las personas"></textarea>
+    </div>
+
+    <div class="section">
+      <label for="photo"><i class="fas fa-camera"></i> Subir Foto:</label>
+      <input type="file" id="photo" accept="image/*">
+
+      <div class="preview">
+        <p>Vista previa de la foto:</p>
+        <img id="photoPreview" alt="Foto" />
+      </div>
+    </div>
+
+    <button onclick="generatePDF()">Generar Currículum</button>
+  </div>
+  <footer>
+    Generado por <strong>Maicol Boghtchumian</strong>. Sígueme en Instagram: <a href="https://instagram.com/maicolbochu" target="_blank">@maicolbochu</a>
+  </footer>
+
+  <div class="floating-credit">Creado por Maicol Boghtchumian</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script>
+    const photoPreview = document.getElementById('photoPreview');
+    const photoInput = document.getElementById('photo');
+
+    // Mostrar vista previa de la imagen
+    photoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          photoPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    async function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.width;
+      const margin = 20;
+      let y = 20;
+
+      // Obtener datos del formulario
+      const name = document.getElementById('name').value;
+      const ci = document.getElementById('ci').value;
+      const dob = document.getElementById('dob').value;
+      const age = document.getElementById('age').value;
+      const nationality = document.getElementById('nationality').value;
+      const sex = document.getElementById('sex').value;
+      const healthCard = document.getElementById('healthCard').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const education = document.getElementById('education').value;
+      const skills = document.getElementById('skills').value;
+      const experience = document.getElementById('experience').value;
+      const languages = document.getElementById('languages').value;
+      const selfDescription = document.getElementById('selfDescription').value;
+
+      // Estilos
+      doc.setFont('Helvetica', 'normal');
+
+      const addText = (label, text, isHighlighted = false) => {
+        doc.setTextColor(isHighlighted ? 0 : 
